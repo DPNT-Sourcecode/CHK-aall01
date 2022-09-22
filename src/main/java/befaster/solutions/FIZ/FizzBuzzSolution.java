@@ -14,7 +14,7 @@ public class FizzBuzzSolution {
         else if((number % 3 ==0 || temp.contains("3")) && (number % 5 ==0 || temp.contains("5"))&&((number % 3 ==0 && temp.contains("3")) || (number % 5 ==0 && temp.contains("5")))) return  "fizz buzz deluxe";
         else if ((number % 3 ==0 || temp.contains("3"))&&((number % 3 ==0 && temp.contains("3")) || (number % 5 ==0 && temp.contains("5")))) return "fizz deluxe";
         else if ((number % 5 ==0 || temp.contains("5"))&&((number % 3 ==0 && temp.contains("3")) || (number % 5 ==0 && temp.contains("5")))) return "buzz deluxe";
-        else if ((number>10 &&allDigitsSame(number))) return "deluxe";
+        else if (((number % 3 ==0 && temp.contains("3")) || (number % 5 ==0 && temp.contains("5")))) return "deluxe";
         else if((number % 3 ==0 || temp.contains("3")) && (number % 5 ==0 || temp.contains("5"))) return  "fizz buzz";
         else if (number % 3 ==0 || temp.contains("3")) return "fizz";
         else if (number % 5 ==0 || temp.contains("5") ) return  "buzz";
@@ -29,4 +29,5 @@ public class FizzBuzzSolution {
         return true;
     }
 }
+
 
