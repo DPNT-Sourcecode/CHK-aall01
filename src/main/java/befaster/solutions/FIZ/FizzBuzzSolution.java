@@ -20,9 +20,11 @@ public class FizzBuzzSolution {
         int t = number % 10;
         while (number !=0){
             if (number %10 !=t) return false;
+            number = number / 10;
         }
         return true;
     }
 }
+
 
 
