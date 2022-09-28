@@ -32,12 +32,12 @@ public class CheckoutSolution {
         if (productsNumber[0]>=5) {
             sum += (productsNumber[0]/5)*200;
             int removedProducts = productsNumber[0]/5;
-            productsNumber[0] = productsNumber[0] - removedProducts;
+            productsNumber[0] = productsNumber[0] - removedProducts*5;
         }
         if (productsNumber[0]>=3) {
             sum += (productsNumber[0]/3)*130;
             int removedProducts = productsNumber[0]/3;
-            productsNumber[0] = productsNumber[0] - removedProducts;
+            productsNumber[0] = productsNumber[0] - removedProducts*3;
         }
         sum+= 50 * productsNumber[0];
 
@@ -60,5 +60,6 @@ public class CheckoutSolution {
         return sum;
     }
 }
+
 
 
