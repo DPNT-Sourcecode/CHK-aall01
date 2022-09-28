@@ -25,6 +25,7 @@ public class CheckoutSolution {
         shoppingCart.getXForLowerPriceOffer(letterToCode('B'),45,2);
         shoppingCart.getXForLowerPriceOffer(letterToCode('H'),80,10);
         shoppingCart.getXForLowerPriceOffer(letterToCode('H'),45,5);
+        shoppingCart.getXForLowerPriceOffer(letterToCode('K'),150,2);
         shoppingCart.getXForLowerPriceOffer(letterToCode('P'),200,5);
         shoppingCart.getXForLowerPriceOffer(letterToCode('Q'),80,3);
         shoppingCart.getXForLowerPriceOffer(letterToCode('V'),130,3);
@@ -75,6 +76,3 @@ public class CheckoutSolution {
         return (int)letter - 65;
     }
 }
-
-
-

@@ -78,5 +78,3 @@ public class ShoppingCart {
         total+= price * itemsArray[itemId];
     }
 }
-
-
