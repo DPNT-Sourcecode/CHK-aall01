@@ -47,6 +47,7 @@ public class CheckoutSolution {
         if (productsNumber[4]>=2){
             int pairs_of_e_prod=productsNumber[4] /2;
             productsNumber[1] =productsNumber[1] - pairs_of_e_prod;
+            if(productsNumber[1]<0)productsNumber[1]=0;
         }
         sum+= 40 * productsNumber[4];
 
@@ -60,6 +61,7 @@ public class CheckoutSolution {
         return sum;
     }
 }
+
 
 
 
