@@ -63,7 +63,7 @@ public class CheckoutSolution {
     //function for checking if the input string is valid.
     public static boolean checkString(String skus){
         for (char letter:skus.toCharArray()) {
-            if(letter<'A' && letter >'Z')
+            if(letterToCode('A')<0 || letterToCode(letter) >25)
                 return false;
         }
         return true;
@@ -74,3 +74,4 @@ public class CheckoutSolution {
         return (int)letter - 65;
     }
 }
+
