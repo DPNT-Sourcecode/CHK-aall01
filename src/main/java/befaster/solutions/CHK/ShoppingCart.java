@@ -83,8 +83,8 @@ public class ShoppingCart {
         // simple bubble sort
         int t1, t2,n=pricesOfTheItemsInGroup.length;
         for (int i=0;i<n-1;i++){
-            for (int j=0;j<n-i-1){
-                if (pricesOfTheItemsInGroup)
+            for (int j=0;j<n-i-1;j++){
+                if (pricesOfTheItemsInGroup[j])
             }
         }
     }
@@ -97,4 +97,5 @@ public class ShoppingCart {
         return (int)letter - 65;
     }
 }
+
 
