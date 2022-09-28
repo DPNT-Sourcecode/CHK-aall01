@@ -29,13 +29,13 @@ public class CheckoutSolution {
         }
         // adding the prices for the A product
         // and removing the producs from the array
-        sum += (productsNumber[0]/5)*200;
         if (productsNumber[0]>=5) {
+            sum += (productsNumber[0]/5)*200;
             int removedProducts = productsNumber[0]/5;
             productsNumber[0] = productsNumber[0] - removedProducts;
         }
-        sum += (productsNumber[0]/3)*130;
         if (productsNumber[0]>=3) {
+            sum += (productsNumber[0]/3)*130;
             int removedProducts = productsNumber[0]/3;
             productsNumber[0] = productsNumber[0] - removedProducts;
         }
@@ -60,4 +60,5 @@ public class CheckoutSolution {
         return sum;
     }
 }
+
 
