@@ -106,7 +106,7 @@ public class ShoppingCart {
         while(getTotalNumberOfItemsInGroup(itemsIdAcceptedInGroup)>=numberOfRequiredItems){
             int numberOfDiscountedItems=1;
             // iterating through ids of the items that are accepted in the group discount
-            for (int i:itemsIdAcceptedInGroup) {
+            for (int i=0;i<itemsIdAcceptedInGroup.length;i++) {
                 // calculating the number of the current items available for the
                 // group offer
                 int numberOfTheItemToBeRemovedAvailable = itemsArray[itemsIdAcceptedInGroup[i]];
@@ -146,4 +146,5 @@ public class ShoppingCart {
         return (int)letter - 65;
     }
 }
+
 
