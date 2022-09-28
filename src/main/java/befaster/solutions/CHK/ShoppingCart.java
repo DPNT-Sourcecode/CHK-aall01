@@ -106,7 +106,7 @@ public class ShoppingCart {
         while(getTotalNumberOfItemsInGroup(itemsIdAcceptedInGroup)>=numberOfRequiredItems){
             int numberOfDiscountedItems=0;
             // iterating through ids of the items that are accepted in the group discount
-            for (int i=0;i<itemsIdAcceptedInGroup.length;i++) {
+            for (int i=0;i<itemsIdAcceptedInGroup.length;) {
                 // calculating the number of the current items available for the
                 // group offer
                 int numberOfTheItemToBeRemovedAvailable = itemsArray[itemsIdAcceptedInGroup[i]];
@@ -114,14 +114,15 @@ public class ShoppingCart {
                 itemsArray[itemsIdAcceptedInGroup[i]]--;
                 //marking one item as added
                 numberOfDiscountedItems++;
+                numberOfTheItemToBeRemovedAvailable--;
                 // if we still have available items to be discounted,
                 // we decrement i, so the loop will be executed again for the same
                 // product until there are no products left
-                if (numberOfTheItemToBeRemovedAvailable-1!=0)
-                    i--;
+                if (numberOfTheItemToBeRemovedAvailable==0)
+                    i++;
                 // as soon as we have enought discounted items for this deal,
                 // we add to the total price the offerPrice and we exit from the for loop.
-                if (numberOfDiscountedItems==numberOfRequiredItems) {
+                if (numberOfDiscountedItems==numberOfRequiredItems-1) {
                     total+=offerPrice;
                     break;
                 }
@@ -146,3 +147,4 @@ public class ShoppingCart {
         return (int)letter - 65;
     }
 }
+
