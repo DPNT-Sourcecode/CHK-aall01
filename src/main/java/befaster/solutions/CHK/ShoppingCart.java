@@ -110,21 +110,27 @@ public class ShoppingCart {
                 // calculating the number of the current items available for the
                 // group offer
                 int numberOfTheItemToBeRemovedAvailable = itemsArray[itemsIdAcceptedInGroup[i]];
-                // deleting one item from the itemsArray
-                itemsArray[itemsIdAcceptedInGroup[i]]--;
-                //marking one item as added
-                numberOfDiscountedItems++;
-                numberOfTheItemToBeRemovedAvailable--;
-                // if we still have available items to be discounted,
-                // we decrement i, so the loop will be executed again for the same
-                // product until there are no products left
-                if (numberOfTheItemToBeRemovedAvailable==0)
+                // checking if the current item is really available
+                // if not, going at the next item
+                if(numberOfTheItemToBeRemovedAvailable==0)
                     i++;
-                // as soon as we have enought discounted items for this deal,
-                // we add to the total price the offerPrice and we exit from the for loop.
-                if (numberOfDiscountedItems==numberOfRequiredItems-1) {
-                    total+=offerPrice;
-                    break;
+                else {
+                    // deleting one item from the itemsArray
+                    itemsArray[itemsIdAcceptedInGroup[i]]--;
+                    //marking one item as added
+                    numberOfDiscountedItems++;
+                    numberOfTheItemToBeRemovedAvailable--;
+                    // if we still have available items to be discounted,
+                    // we decrement i, so the loop will be executed again for the same
+                    // product until there are no products left
+                    if (numberOfTheItemToBeRemovedAvailable == 0)
+                        i++;
+                    // as soon as we have enought discounted items for this deal,
+                    // we add to the total price the offerPrice and we exit from the for loop.
+                    if (numberOfDiscountedItems == numberOfRequiredItems - 1) {
+                        total += offerPrice;
+                        break;
+                    }
                 }
             }
         }
@@ -147,4 +153,5 @@ public class ShoppingCart {
         return (int)letter - 65;
     }
 }
+
 
