@@ -30,32 +30,32 @@ public class CheckoutSolution {
         shoppingCart.getXForLowerPriceOffer(letterToCode('V'),90,2);
 
         // processing the rest of the shopping cart
-        shoppingCart.buyNoOffer(letterToCode('A',50));
-        shoppingCart.buyNoOffer(letterToCode('B',30));
-        shoppingCart.buyNoOffer(letterToCode('C',20));
-        shoppingCart.buyNoOffer(letterToCode('D',15));
-        shoppingCart.buyNoOffer(letterToCode('E',40));
-        shoppingCart.buyNoOffer(letterToCode('F',10));
-        shoppingCart.buyNoOffer(letterToCode('G',20));
-        shoppingCart.buyNoOffer(letterToCode('H',10));
-        shoppingCart.buyNoOffer(letterToCode('I',35));
-        shoppingCart.buyNoOffer(letterToCode('J',60));
-        shoppingCart.buyNoOffer(letterToCode('K',80));
-        shoppingCart.buyNoOffer(letterToCode('L',90));
-        shoppingCart.buyNoOffer(letterToCode('M',15));
-        shoppingCart.buyNoOffer(letterToCode('N',40));
-        shoppingCart.buyNoOffer(letterToCode('O',10));
-        shoppingCart.buyNoOffer(letterToCode('P',50));
-        shoppingCart.buyNoOffer(letterToCode('Q',30));
-        shoppingCart.buyNoOffer(letterToCode('R',50));
-        shoppingCart.buyNoOffer(letterToCode('S',30));
-        shoppingCart.buyNoOffer(letterToCode('T',20));
-        shoppingCart.buyNoOffer(letterToCode('U',40));
-        shoppingCart.buyNoOffer(letterToCode('V',50));
-        shoppingCart.buyNoOffer(letterToCode('W',20));
-        shoppingCart.buyNoOffer(letterToCode('X',90));
-        shoppingCart.buyNoOffer(letterToCode('Y',10));
-        shoppingCart.buyNoOffer(letterToCode('Z',50));
+        shoppingCart.buyNoOffer(letterToCode('A'),50);
+        shoppingCart.buyNoOffer(letterToCode('B'),30);
+        shoppingCart.buyNoOffer(letterToCode('C'),20);
+        shoppingCart.buyNoOffer(letterToCode('D'),15);
+        shoppingCart.buyNoOffer(letterToCode('E'),40);
+        shoppingCart.buyNoOffer(letterToCode('F'),10);
+        shoppingCart.buyNoOffer(letterToCode('G'),20);
+        shoppingCart.buyNoOffer(letterToCode('H'),10);
+        shoppingCart.buyNoOffer(letterToCode('I'),35);
+        shoppingCart.buyNoOffer(letterToCode('J'),60);
+        shoppingCart.buyNoOffer(letterToCode('K'),80);
+        shoppingCart.buyNoOffer(letterToCode('L'),90);
+        shoppingCart.buyNoOffer(letterToCode('M'),15);
+        shoppingCart.buyNoOffer(letterToCode('N'),40);
+        shoppingCart.buyNoOffer(letterToCode('O'),10);
+        shoppingCart.buyNoOffer(letterToCode('P'),50);
+        shoppingCart.buyNoOffer(letterToCode('Q'),30);
+        shoppingCart.buyNoOffer(letterToCode('R'),50);
+        shoppingCart.buyNoOffer(letterToCode('S'),30);
+        shoppingCart.buyNoOffer(letterToCode('T'),20);
+        shoppingCart.buyNoOffer(letterToCode('U'),40);
+        shoppingCart.buyNoOffer(letterToCode('V'),50);
+        shoppingCart.buyNoOffer(letterToCode('W'),20);
+        shoppingCart.buyNoOffer(letterToCode('X'),90);
+        shoppingCart.buyNoOffer(letterToCode('Y'),10);
+        shoppingCart.buyNoOffer(letterToCode('Z'),50);
 
         return shoppingCart.getTotal();
     }
@@ -74,6 +74,7 @@ public class CheckoutSolution {
         return (int)letter - 65;
     }
 }
+
 
 
 
