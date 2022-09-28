@@ -4,7 +4,7 @@ import befaster.runner.SolutionNotImplementedException;
 
 public class CheckoutSolution {
     public Integer checkout(String skus) {
-        Integer[] productsNumber =  {0,0,0,0,0};
+        Integer[] productsNumber =  {0,0,0,0,0,0};
         int sum = 0;
         for (char sku:skus.toCharArray()) {
             switch (sku){
@@ -22,6 +22,9 @@ public class CheckoutSolution {
                     break;
                 case  'E':
                     productsNumber[4]++;
+                    break;
+                case  'F':
+                    productsNumber[5]++;
                     break;
                 default:
                     return -1;
@@ -58,10 +61,15 @@ public class CheckoutSolution {
         sum += 20 * productsNumber[2];
         sum += 15 * productsNumber[3];
 
+        // F Product
+        if (productsNumber[5]>=3){
+            int triples_of_e_prod=productsNumber[5] /3;
+            productsNumber[5] = productsNumber[5] - triples_of_e_prod*3;
+            sum+= 20*triples_of_e_prod;
+        }
+        sum+=10*productsNumber[5];
+
+
         return sum;
     }
 }
-
-
-
-
