@@ -46,15 +46,14 @@ public class ShoppingCart {
     public void getOneFreeOfferSameItem(int itemId, int numberOfItemsForDiscount,int price){
         // the purpose is similar to the function above but this is used when the same item is given free,
         // for example, get 3H get 1H free. The logic is a bit different
-        if (itemsArray[itemId]>=numberOfItemsForDiscount){
-            // calculating the number of "pairs" (i.e. how many times the discount is applied).
-            int pairs_of_prod=itemsArray[itemId] /numberOfItemsForDiscount;
-            // adding the price for the "pairs" to the total price(so those wont be added again later)
-            total += numberOfItemsForDiscount * price *pairs_of_prod;
+        while (itemsArray[itemId]>=numberOfItemsForDiscount){
+            // handling one pair at a time, otherwise 2 pairs might be handled at the same time and no discount
+            // item provided
+            total += numberOfItemsForDiscount * price;
             // substracting the number of items whose price was already calculated above
-            itemsArray[itemId] -= pairs_of_prod* numberOfItemsForDiscount;
-            // substracting the discounted items
-            itemsArray[itemId] -= pairs_of_prod;
+            itemsArray[itemId] -= numberOfItemsForDiscount;
+            // substracting the discounted item
+            itemsArray[itemId] --;
             // ensuring that the final number of items is not negative
             if (itemsArray[itemId]<0) itemsArray[itemId]=0;
         }
@@ -79,4 +78,5 @@ public class ShoppingCart {
         total+= price * itemsArray[itemId];
     }
 }
+
 
