@@ -106,7 +106,7 @@ public class ShoppingCart {
         while(getTotalNumberOfItemsInGroup(itemsIdAcceptedInGroup)>=numberOfRequiredItems){
             int numberOfDiscountedItems=0;
             //second try, remaking all the logic from scratch
-            while(numberOfDiscountedItems<numberOfRequiredItems-1){
+            while(numberOfDiscountedItems<numberOfRequiredItems){
                 // iterating through all the items that are a part of the deal
                 // in order to exclude them as soon as those are added in the deal
                 for (int i=0; i<itemsIdAcceptedInGroup.length;i++){
@@ -144,5 +144,6 @@ public class ShoppingCart {
         return (int)letter - 65;
     }
 }
+
 
 
