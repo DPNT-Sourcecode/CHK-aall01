@@ -72,9 +72,29 @@ public class ShoppingCart {
             itemsArray[itemId] = itemsArray[itemId] - pairsOfProducts*noItemsToGetDiscount;
         }
     }
+
+    public void handleGroupOffer(char []itemsAcceptedInGroup, int[] pricesOfTheItemsInGroup,
+                                 int numberOfRequiredItems,int offerPrice){
+        // function designed to handle the case when there's a group offer in place.
+        // example: buy any 3 of (S,T,X,Y,Z) for 45
+        //
+        // first part: sorting both the arrays(price and itemId) in descending order
+        // after the price, so the customer would get the best offer in place
+        // simple bubble sort
+        int t1, t2,n=pricesOfTheItemsInGroup.length;
+        for (int i=0;i<n-1;i++){
+            for (int j=0;j<n-i-1){
+                if (pricesOfTheItemsInGroup)
+            }
+        }
+    }
     public void buyNoOffer(int itemId, int price){
         // simple function used to add to the total the number of some items that
         // have no deal/discount
         total+= price * itemsArray[itemId];
     }
+    public static int letterToCode(char letter){
+        return (int)letter - 65;
+    }
 }
+

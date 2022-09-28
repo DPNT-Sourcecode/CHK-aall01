@@ -8,6 +8,11 @@ public class CheckoutSolution {
             return -1;
         ShoppingCart shoppingCart = new ShoppingCart(skus);
 
+        //handling the group offers
+        char itemsAcceptedInGroup[] = "STXYZ".toCharArray();
+        int pricesOfTheItemsInGroup[] = {20,20,17,20,21};
+        shoppingCart.handleGroupOffer(itemsAcceptedInGroup,pricesOfTheItemsInGroup,3,45);
+
         // first we should handle the get One Free Offer
         // as those interact with other items as well
         shoppingCart.getOneFreeOffer(letterToCode('E'),2,letterToCode('B'));
@@ -25,7 +30,7 @@ public class CheckoutSolution {
         shoppingCart.getXForLowerPriceOffer(letterToCode('B'),45,2);
         shoppingCart.getXForLowerPriceOffer(letterToCode('H'),80,10);
         shoppingCart.getXForLowerPriceOffer(letterToCode('H'),45,5);
-        shoppingCart.getXForLowerPriceOffer(letterToCode('K'),150,2);
+        shoppingCart.getXForLowerPriceOffer(letterToCode('K'),120,2);
         shoppingCart.getXForLowerPriceOffer(letterToCode('P'),200,5);
         shoppingCart.getXForLowerPriceOffer(letterToCode('Q'),80,3);
         shoppingCart.getXForLowerPriceOffer(letterToCode('V'),130,3);
@@ -42,7 +47,7 @@ public class CheckoutSolution {
         shoppingCart.buyNoOffer(letterToCode('H'),10);
         shoppingCart.buyNoOffer(letterToCode('I'),35);
         shoppingCart.buyNoOffer(letterToCode('J'),60);
-        shoppingCart.buyNoOffer(letterToCode('K'),80);
+        shoppingCart.buyNoOffer(letterToCode('K'),70);
         shoppingCart.buyNoOffer(letterToCode('L'),90);
         shoppingCart.buyNoOffer(letterToCode('M'),15);
         shoppingCart.buyNoOffer(letterToCode('N'),40);
@@ -50,14 +55,14 @@ public class CheckoutSolution {
         shoppingCart.buyNoOffer(letterToCode('P'),50);
         shoppingCart.buyNoOffer(letterToCode('Q'),30);
         shoppingCart.buyNoOffer(letterToCode('R'),50);
-        shoppingCart.buyNoOffer(letterToCode('S'),30);
+        shoppingCart.buyNoOffer(letterToCode('S'),20);
         shoppingCart.buyNoOffer(letterToCode('T'),20);
         shoppingCart.buyNoOffer(letterToCode('U'),40);
         shoppingCart.buyNoOffer(letterToCode('V'),50);
         shoppingCart.buyNoOffer(letterToCode('W'),20);
-        shoppingCart.buyNoOffer(letterToCode('X'),90);
-        shoppingCart.buyNoOffer(letterToCode('Y'),10);
-        shoppingCart.buyNoOffer(letterToCode('Z'),50);
+        shoppingCart.buyNoOffer(letterToCode('X'),17);
+        shoppingCart.buyNoOffer(letterToCode('Y'),20);
+        shoppingCart.buyNoOffer(letterToCode('Z'),21);
 
         return shoppingCart.getTotal();
     }
@@ -76,3 +81,4 @@ public class CheckoutSolution {
         return (int)letter - 65;
     }
 }
+
