@@ -105,32 +105,23 @@ public class ShoppingCart {
         // offer's condition
         while(getTotalNumberOfItemsInGroup(itemsIdAcceptedInGroup)>=numberOfRequiredItems){
             int numberOfDiscountedItems=0;
-            // iterating through ids of the items that are accepted in the group discount
-            for (int i=0;i<itemsIdAcceptedInGroup.length;) {
-                // calculating the number of the current items available for the
-                // group offer
-                int numberOfTheItemToBeRemovedAvailable = itemsArray[itemsIdAcceptedInGroup[i]];
-                // checking if the current item is really available
-                // if not, going at the next item
-                if(numberOfTheItemToBeRemovedAvailable==0)
-                    i++;
-                else {
-                    // deleting one item from the itemsArray
-                    itemsArray[itemsIdAcceptedInGroup[i]]--;
-                    //marking one item as added
-                    numberOfDiscountedItems++;
-                    numberOfTheItemToBeRemovedAvailable--;
-                    // if we still have available items to be discounted,
-                    // we decrement i, so the loop will be executed again for the same
-                    // product until there are no products left
-                    if (numberOfTheItemToBeRemovedAvailable == 0)
-                        i++;
-                    // as soon as we have enought discounted items for this deal,
-                    // we add to the total price the offerPrice and we exit from the for loop.
-                    if (numberOfDiscountedItems == numberOfRequiredItems - 1) {
-                        total += offerPrice;
+            //second try, remaking all the logic from scratch
+            while(numberOfDiscountedItems<numberOfRequiredItems-1){
+                // iterating through all the items that are a part of the deal
+                // in order to exclude them as soon as those are added in the deal
+                for (int i=0; i<itemsIdAcceptedInGroup.length;i++){
+                    if (itemsArray[itemsIdAcceptedInGroup[i]]!=0){
+                        //adding the current item in the deal.
+                        numberOfDiscountedItems++;
+                        //removing the item from the general inventory(itemArray)
+                        itemsArray[itemsIdAcceptedInGroup[i]]--;
+                        //exiting from the loop so other object wont be added
                         break;
                     }
+                }
+                //as long as condition is ok, adding the price to the total
+                if (numberOfDiscountedItems==numberOfRequiredItems-1){
+                    total+=offerPrice;
                 }
             }
         }
