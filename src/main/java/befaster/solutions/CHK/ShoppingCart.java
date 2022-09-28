@@ -104,7 +104,7 @@ public class ShoppingCart {
         // from the group is lower than the number of items required to meet
         // offer's condition
         while(getTotalNumberOfItemsInGroup(itemsIdAcceptedInGroup)>=numberOfRequiredItems){
-            int numberOfDiscountedItems=1;
+            int numberOfDiscountedItems=0;
             // iterating through ids of the items that are accepted in the group discount
             for (int i=0;i<itemsIdAcceptedInGroup.length;i++) {
                 // calculating the number of the current items available for the
@@ -146,5 +146,6 @@ public class ShoppingCart {
         return (int)letter - 65;
     }
 }
+
 
 
