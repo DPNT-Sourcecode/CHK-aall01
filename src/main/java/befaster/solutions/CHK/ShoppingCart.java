@@ -78,13 +78,19 @@ public class ShoppingCart {
         // function designed to handle the case when there's a group offer in place.
         // example: buy any 3 of (S,T,X,Y,Z) for 45
         //
-        // first part: sorting both the arrays(price and itemId) in descending order
+        // 1st part: converting the char array to an int array
+        int[] itemsIdAcceptedInGroup = new int[pricesOfTheItemsInGroup.length];
+        for (int i=0;i<pricesOfTheItemsInGroup.length;i++)
+            itemsIdAcceptedInGroup[i] =letterToCode(itemsAcceptedInGroup[i]);
+        // 2nd part: sorting both the arrays(price and itemId) in descending order
         // after the price, so the customer would get the best offer in place
         // simple bubble sort
-        int t1, t2,n=pricesOfTheItemsInGroup.length;
+        int n=pricesOfTheItemsInGroup.length;
         for (int i=0;i<n-1;i++){
             for (int j=0;j<n-i-1;j++){
-                if (pricesOfTheItemsInGroup[j])
+                if (pricesOfTheItemsInGroup[j]<pricesOfTheItemsInGroup[j+1]){
+                    int t
+                }
             }
         }
     }
@@ -97,5 +103,6 @@ public class ShoppingCart {
         return (int)letter - 65;
     }
 }
+
 
 
