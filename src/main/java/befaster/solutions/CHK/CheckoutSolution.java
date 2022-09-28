@@ -30,7 +30,7 @@ public class CheckoutSolution {
         shoppingCart.getXForLowerPriceOffer(letterToCode('V'),90,2);
 
         // processing the rest of the shopping cart
-
+        shoppingCart.buyNoOffer(letterToCode('A'),50);
 
         return shoppingCart.getTotal();
     }
@@ -49,4 +49,5 @@ public class CheckoutSolution {
         return (int)letter - 65;
     }
 }
+
 
