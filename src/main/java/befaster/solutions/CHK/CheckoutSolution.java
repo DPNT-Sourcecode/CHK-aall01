@@ -74,7 +74,3 @@ public class CheckoutSolution {
         return (int)letter - 65;
     }
 }
-
-
-
-

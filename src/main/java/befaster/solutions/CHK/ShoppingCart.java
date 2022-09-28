@@ -37,29 +37,45 @@ public class ShoppingCart {
             int pairs_of_prod=itemsArray[sourceItem] /numberOfItemsForDiscount;
             // removing the discountedItem(s) so those will not be paid.
             itemsArray[discountedItem] =itemsArray[discountedItem] - pairs_of_prod;
-            // ensuring that the number of discountedItem(
+            // ensuring that the number of discountedItem(s) won't become negative
+            // in the scenario where the number of initial discounted items is lower than the number of how
+            // many times the discount is applied).
             if(itemsArray[discountedItem]<0)itemsArray[discountedItem]=0;
         }
     }
     public void getOneFreeOfferSameItem(int itemId, int numberOfItemsForDiscount,int price){
+        // the purpose is similar to the function above but this is used when the same item is given free,
+        // for example, get 3H get 1H free. The logic is a bit different
         if (itemsArray[itemId]>=numberOfItemsForDiscount){
+            // calculating the number of "pairs" (i.e. how many times the discount is applied).
             int pairs_of_prod=itemsArray[itemId] /numberOfItemsForDiscount;
+            // adding the price for the "pairs" to the total price(so those wont be added again later)
             total += numberOfItemsForDiscount * price *pairs_of_prod;
+            // substracting the number of items whose price was already calculated above
             itemsArray[itemId] -= pairs_of_prod* numberOfItemsForDiscount;
+            // substracting the discounted items
             itemsArray[itemId] -= pairs_of_prod;
+            // ensuring that the final number of items is not negative
             if (itemsArray[itemId]<0) itemsArray[itemId]=0;
         }
     }
     public void getXForLowerPriceOffer(int itemId, int offerPrice, int noItemsToGetDiscount){
+        // function to handle the case when the scenario where you can buy multiple products
+        // for a lower price, example: 2V for 90
+        //
+        // checking if the deal is applicable
         if (itemsArray[itemId]>=noItemsToGetDiscount) {
-            total += (itemsArray[itemId]/noItemsToGetDiscount)*offerPrice;
-            int removedProducts = itemsArray[itemId]/noItemsToGetDiscount;
-            itemsArray[itemId] = itemsArray[offerPrice] - removedProducts*noItemsToGetDiscount;
+            // calculating the number of pairs the customer intends to buy
+            int pairsOfProducts= itemsArray[itemId]/noItemsToGetDiscount;
+            // adding the price to the total price of the shopping cart
+            total += pairsOfProducts*offerPrice;
+            // removing the number of items that were already calculated
+            itemsArray[itemId] = itemsArray[offerPrice] - pairsOfProducts*noItemsToGetDiscount;
         }
     }
     public void buyNoOffer(int itemId, int price){
+        // simple function used to add to the total the number of some items that
+        // have no deal/discount
         total+= price * itemsArray[itemId];
     }
 }
-
-
