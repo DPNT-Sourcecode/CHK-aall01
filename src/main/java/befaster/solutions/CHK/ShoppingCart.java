@@ -103,6 +103,3 @@ public class ShoppingCart {
         return (int)letter - 65;
     }
 }
-
-
-
