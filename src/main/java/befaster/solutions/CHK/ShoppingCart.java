@@ -89,11 +89,54 @@ public class ShoppingCart {
         for (int i=0;i<n-1;i++){
             for (int j=0;j<n-i-1;j++){
                 if (pricesOfTheItemsInGroup[j]<pricesOfTheItemsInGroup[j+1]){
-                    int t
+                    // for the price
+                    int t = pricesOfTheItemsInGroup[j+1];
+                    pricesOfTheItemsInGroup[j+1] =pricesOfTheItemsInGroup[j];
+                    pricesOfTheItemsInGroup[j]=t;
+                    // for the ids
+                    t = itemsIdAcceptedInGroup[j+1];
+                    itemsIdAcceptedInGroup[j+1] =itemsIdAcceptedInGroup[j];
+                    itemsIdAcceptedInGroup[j]=t;
+                }
+            }
+        }
+        // executing the loop below until(and if) the number of the items
+        // from the group is lower than the number of items required to meet
+        // offer's condition
+        while(getTotalNumberOfItemsInGroup(itemsIdAcceptedInGroup)>=numberOfRequiredItems){
+            int numberOfDiscountedItems=1;
+            // iterating through ids of the items that are accepted in the group discount
+            for (int i:itemsIdAcceptedInGroup) {
+                // calculating the number of the current items available for the
+                // group offer
+                int numberOfTheItemToBeRemovedAvailable = itemsArray[itemsIdAcceptedInGroup[i]];
+                // deleting one item from the itemsArray
+                itemsArray[itemsIdAcceptedInGroup[i]]--;
+                //marking one item as added
+                numberOfDiscountedItems++;
+                // if we still have available items to be discounted,
+                // we decrement i, so the loop will be executed again for the same
+                // product until there are no products left
+                if (numberOfTheItemToBeRemovedAvailable-1!=0)
+                    i--;
+                // as soon as we have enought discounted items for this deal,
+                // we add to the total price the offerPrice and we exit from the for loop.
+                if (numberOfDiscountedItems==numberOfRequiredItems) {
+                    total+=offerPrice;
+                    break;
                 }
             }
         }
     }
+
+    private int getTotalNumberOfItemsInGroup(int[] itemsIdAcceptedInGroup) {
+        int sum=0,i;
+        for (i=0;i<itemsIdAcceptedInGroup.length;i++){
+            sum += itemsArray[itemsIdAcceptedInGroup[i]];
+        }
+        return sum;
+    }
+
     public void buyNoOffer(int itemId, int price){
         // simple function used to add to the total the number of some items that
         // have no deal/discount
@@ -103,3 +146,4 @@ public class ShoppingCart {
         return (int)letter - 65;
     }
 }
+
