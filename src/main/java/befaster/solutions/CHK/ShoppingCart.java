@@ -70,7 +70,7 @@ public class ShoppingCart {
             // adding the price to the total price of the shopping cart
             total += pairsOfProducts*offerPrice;
             // removing the number of items that were already calculated
-            itemsArray[itemId] = itemsArray[offerPrice] - pairsOfProducts*noItemsToGetDiscount;
+            itemsArray[itemId] = itemsArray[itemId] - pairsOfProducts*noItemsToGetDiscount;
         }
     }
     public void buyNoOffer(int itemId, int price){
@@ -79,3 +79,4 @@ public class ShoppingCart {
         total+= price * itemsArray[itemId];
     }
 }
+
